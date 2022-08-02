@@ -9,9 +9,11 @@
 }
 
 .aboutContainer {
+    // display: none;
+
     @media screen and (min-width: 768px) {
         display: grid;
-        grid-template-columns: 1fr 1.1fr;
+        grid-template-columns: 1fr 1.03fr;
     }
 
     @media screen and (min-width: 1360px) {
@@ -31,7 +33,6 @@
 }
 
 .aboutDescription {
-    width: 100%;
     padding: 40px 30px;
     color: #FFFFFF;
 

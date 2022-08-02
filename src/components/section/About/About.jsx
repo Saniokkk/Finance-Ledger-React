@@ -1,23 +1,27 @@
 import { Container } from '../../Container';
 import styles from './About.module.scss';
+import imgWebp1x from '../../../assets/home/people.webp';
+import imgWebp2x from '../../../assets/home/people@2x.webp';
+import imgJpg1x from '../../../assets/home/people.jpg';
+import imgJpg2x from '../../../assets/home/people@2x.jpg';
 
 const About = () => {
     
 
     return (
-    <section class={styles.about} id="about">
-        <Container class={styles.aboutContainer}>
+    <section className={styles.about} id="about">
+        <Container className={styles.aboutContainer}>
             <picture>
-                <source srcset="../../../assets/home/people.webp 1x, ../../../assets/home/people@2x.webp 2x"/>
-                <source srcset="../../../assets/home/people.jpg 1x, ../../../assets/home/people@2x.jpg 2x"/>
-                <img class={styles.aboutImg} src="../../../assets/home/people.jpg" alt="people" />
+                <source srcSet={`${imgWebp1x} 1x, ${imgWebp2x} 2x`} />
+                <source srcSet={`${imgJpg1x} 1x, ${imgJpg2x} 2x`}/>
+                <img className={styles.aboutImg} src={imgJpg1x} alt="people" />
             </picture>
-            <div class={styles.aboutDescription}>
-                <p class={styles.aboutSubtitle}>What you are looking for</p>
-                <h2 class={styles.aboutTitle}>We provide bespoke solutions</h2>
-                <p class={styles.aboutText}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate, ipsum dignissimos quae laudantium asperiores nam
+            <div className={styles.aboutDescription}>
+                <p className={styles.aboutSubtitle}>What you are looking for</p>
+                <h2 className={styles.aboutTitle}>We provide bespoke solutions</h2>
+                <p className={styles.aboutText}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate, ipsum dignissimos quae laudantium asperiores nam
                 aliquid impedit harum illum dolore explicabo ab dolores itaque rerum temporibus doloribus iste maiores deleniti?</p>
-                <button type="button" class={styles.aboutBtn}>Read More</button>
+                <button type="button" className={styles.aboutBtn}>Read More</button>
             </div>
         </Container>
     </section>

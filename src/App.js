@@ -7,6 +7,7 @@ import Cases from './components/section/Cases';
 import Blog from './components/section/Blog';
 import Contact from './components/section/Contact';
 import Footer from './components/section/Footer';
+import Team from './components/section/Team';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <About />
       <Cases />
       <Blog />
+      <Team />
       <Contact />
       <Footer />
     </>

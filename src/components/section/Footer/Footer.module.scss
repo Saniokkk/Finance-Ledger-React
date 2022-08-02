@@ -1,0 +1,51 @@
+@mixin transition($pr, $du: 250ms, $tf: cubic-bezier(0.4, 0, 0.2, 1)) {
+    transition-property: $pr;
+    transition-duration: $du;
+    transition-timing-function: $tf;
+}
+
+.footer {
+    color: #ffffff;
+    background-color: #333333;
+    padding: 20px auto;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+
+.socialList {
+    display: flex;
+    margin: 0 auto 8px;
+}
+
+.socialIcon {
+    width: 35px;
+    height: 35px;
+    fill: #ffffff;
+    @include transition(fill);
+
+    // .socialLink:hover &,
+    // .socialLink:focus & {
+    //     fill: var(--primary-color);
+
+    // }
+}
+
+// .footer-social__link:hover,
+// .footer-social__link:focus {
+
+// }
+.socialItem+.socialItem {
+    margin-left: 25px;
+}
+
+.footerText {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+}
