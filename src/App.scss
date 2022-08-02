@@ -1,0 +1,25 @@
+@import './scss/utils/normalize.scss';
+@import './scss/utils/container.scss';
+@import './scss/utils/mixins.scss';
+@import './scss/utils/reset.scss';
+@import './scss/utils/variables.scss';
+@import './scss/utils/visually-hidden.scss';
+
+
+@mixin text($fs, $lh, $fw: 400) {
+  font-size: $fs;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+@mixin transition($pr, $du: 250ms, $tf: cubic-bezier(0.4, 0, 0.2, 1)) {
+  transition-property: $pr;
+  transition-duration: $du;
+  transition-timing-function: $tf;
+}
+
+@mixin flex-column-center() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

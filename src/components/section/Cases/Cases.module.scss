@@ -1,0 +1,92 @@
+@mixin transition($pr, $du: 250ms, $tf: cubic-bezier(0.4, 0, 0.2, 1)) {
+    transition-property: $pr;
+    transition-duration: $du;
+    transition-timing-function: $tf;
+}
+
+.cases {
+    color: var(--secondary-text-color);
+    padding: 40px 20px;
+
+    @media screen and (min-width: 1360px) {
+        padding: 80px 28px;
+    }
+}
+
+.casesSubtitle {
+    font-size: 18px;
+    line-height: 1.66;
+    text-align: center;
+    padding-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+        line-height: 1.65;
+    }
+}
+
+.casesTitle {
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 1.26;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.casesText {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+    padding-bottom: 20px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 1.56;
+    }
+}
+
+.casesList {
+    display: grid;
+    grid-row-gap: 8px;
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 18px;
+    }
+
+    @media screen and (min-width: 768px) {
+        grid-column-gap: 20px;
+        grid-row-gap: 24px;
+    }
+}
+
+.casesItem {
+    display: block;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        @include transition(opacity, 500ms);
+    }
+
+    &:hover:after,
+    &:focus:after {
+        opacity: 1;
+    }
+}
+
+.casesImg {
+    display: block;
+    width: 100%;
+
+    &:hover {
+        transform: scale(1.03, 1.03);
+    }
+}

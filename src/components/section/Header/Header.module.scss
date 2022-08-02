@@ -1,0 +1,135 @@
+@mixin text($fs, $lh, $fw: 400) {
+    font-size: $fs;
+    line-height: $lh;
+    font-weight: $fw;
+}
+
+@mixin transition($pr, $du: 250ms, $tf: cubic-bezier(0.4, 0, 0.2, 1)) {
+    transition-property: $pr;
+    transition-duration: $du;
+    transition-timing-function: $tf;
+}
+
+@mixin flex-column-center() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    padding: 20px 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    @media screen and (min-width: 1360px) {
+        padding: 12px 0;
+    }
+}
+
+.header__bg {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+}
+
+.containerBox{
+    
+}
+
+.headerContainer {
+    max-width: 320px;
+    padding: 0 18px;
+
+    @media screen and (min-width: 768px) {
+        max-width: 1360px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+}
+
+.headerLogo {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    color: var(--primary-color);
+    line-height: 1.32;
+    padding-left: 6px;
+    margin-bottom: 12px;
+    @include transition(transform, 500ms);
+
+    &:hover,
+    &:focus {
+        opacity: 0.8;
+        transform: scale(1.05, 1.05);
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 35px;
+        line-height: 1.21;
+        margin-bottom: 0;
+    }
+}
+
+.logoSvg {
+    margin-right: 6px;
+
+    @media screen and (min-width: 768px) {
+        margin-right: 10px;
+    }
+}
+
+.logoText {
+    color: var(--primary-text-color);
+}
+
+.navList {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navItem {
+    position: relative;
+    padding-right: 6px;
+    padding-left: 6px;
+
+    @media screen and (min-width: 768px) {
+        padding: 0 10px;
+    }
+
+    @media screen and (min-width: 1360px) {
+        padding: 0 20px;
+    }
+}
+
+.navLink:after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    display: none;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.navLink {
+    display: block;
+    color: var(--primary-text-color);
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    line-height: 1.6;
+
+    &:hover:after {
+        display: block;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 1.56;
+    }
+}
