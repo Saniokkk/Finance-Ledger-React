@@ -28,7 +28,7 @@ const Team = () => {
         <ul className={styles.teamList}>
             {person.map((item, index) => (
             <li key={item.name} className={styles.teamItem}>
-                <div className={styles.teamWrapper} tabindex="0">
+                <div className={styles.teamWrapper} tabIndex="0">
                     <picture>
                         <source srcSet={`${imagePath(index+1, 'webp')} 1x, ${imagePath2x(index+1, 'webp')} 2x`} type="image/webp" />
                         <source srcSet={`${imagePath(index+1, 'jpg')} 1x, ${imagePath2x(index+1, 'jpg')} 2x`} type="image/jpg" />

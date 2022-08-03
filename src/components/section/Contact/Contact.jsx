@@ -23,11 +23,11 @@ return (
                 <form className={classNames(styles.form, 'action')}>
                     <div className={styles.formItem}>
                         <input className={styles.formInput} placeholder=" " name="name" type="text" id="user-name" />
-                        <label className={styles.formLabel} for="user-name">Enter your name</label>
+                        <label className={styles.formLabel} htmlFor="user-name">Enter your name</label>
                     </div>
                     <div className={styles.formItem}>
                         <input className={classNames(styles.formInput, styles.inputEmail)} placeholder=" " name="email" type="text" id="user-email" />
-                        <label className={styles.formLabel} for="user-email">Enter email*</label>
+                        <label className={styles.formLabel} htmlFor="user-email">Enter email*</label>
                         <p className={classNames(styles.worning, 'visually-hidden')}>
                             <svg className={styles.iconWorning} width="7" height="10">
                                 <use href={`${icons}#icon-worning`} />

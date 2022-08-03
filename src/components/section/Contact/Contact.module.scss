@@ -4,6 +4,10 @@
     transition-timing-function: $tf;
 }
 
+.formInput{
+    width: 80%;
+}
+
 .contact {
     background-color: #F4F4F4;
     // color: var(--primary-text-color);
@@ -104,6 +108,7 @@
     height: 40px;
     padding: 5px 15px;
     margin-bottom: 32px;
+    border-radius: 5px;
 }
 
 .inputEmail {
@@ -118,7 +123,7 @@
     pointer-events: none;
     left: 15px;
     right: 15px;
-    top: 0;
+    top: 6px;
     color: #000;
     font-size: 16px;
     white-space: nowrap;
@@ -148,4 +153,8 @@
 .iconWorning {
     width: 16px;
     height: 16px;
+}
+
+.formInput{
+
 }
