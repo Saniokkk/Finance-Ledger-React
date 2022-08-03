@@ -8,9 +8,20 @@ function getCoords(elem) {
 }
 
 function scrollToTop(coord) {
-  const headerHeight = window.visualViewport.width < 768 ? 120 : 80
+  const headerHeight = () => {
+    if (window.visualViewport.width < 768) {
+      return 120
+    }
+    if (window.visualViewport.width > 768 && window.visualViewport.width < 1360) {
+      return 80
+    }
+    if (window.visualViewport.width > 1360) {
+      return 67
+    }
+  }
+  
   rootElement.scrollTo({
-    top: coord ? coord - headerHeight : 0,
+    top: coord ? coord - headerHeight() : 0,
     behavior: "smooth"
   });
 }
