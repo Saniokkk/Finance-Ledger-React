@@ -14,11 +14,17 @@ import { Modal } from '../../Modal/Modal';
 const Contact = () => {
     const [showModal, setShowModal] = useState(false);
 
-    const toggleModal = () => {
-    setShowModal(!showModal);
-    };
+    // const toggleModal = () => {
+    // setShowModal(!showModal);
+    // };
     
+    const openModal = () => {
+    setShowModal(true);
+    };
 
+    const closeModal = () => {
+    setShowModal(false);
+    };
 
 function isValidEmail(email) { 
     return /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/.test(email); 
@@ -41,7 +47,7 @@ function isValidEmail(email) {
             textWorning.textContent = `Your email ${email}  invalid, it must contain @`;
             worning.classList.remove('visually-hidden');
         } else {
-            toggleModal();
+            openModal();
             worning.classList.add('visually-hidden');
             event.currentTarget.reset();
         }
@@ -51,11 +57,11 @@ function isValidEmail(email) {
     return (
     <>
         {showModal && (
-            <Modal toggleModal={toggleModal}>
+            <Modal toggleModal={closeModal}>
                 {/* <div className={styleModal.modal}> */}
                     <h2 className={styleModal.modalTitle}>Thank You!</h2>
                     <p className={styleModal.modalText}>I would be happy to work with you🙂</p>
-                    <button onClick={toggleModal} className={styleModal.closeModal}>
+                    <button onClick={closeModal} className={styleModal.closeModal}>
                     Back to our site
                     </button>
                 {/* </div> */}
