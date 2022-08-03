@@ -7,10 +7,12 @@
 .cases {
     color: var(--secondary-text-color);
     padding: 40px 20px;
-
+    // max-width: 1360px;
+    margin: 0 auto;
     @media screen and (min-width: 1360px) {
         padding: 80px 28px;
     }
+
 }
 
 .casesSubtitle {

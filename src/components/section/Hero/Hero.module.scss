@@ -5,7 +5,7 @@
 }
 
 .hero {
-    padding: 142px 20px 94px 20px;
+    padding: 142px 20px 96px 20px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,11 +37,12 @@
     line-height: 1.27;
     text-align: center;
     color: #E9E9E9;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
     @media screen and (min-width: 768px) {
         font-size: 55px;
         line-height: 1.2;
+        margin-bottom: 24px;
     }
 
 }
@@ -53,6 +54,9 @@
     text-align: center;
     color: #E9E9E9;
     margin-bottom: 24px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 32px;
+    }
 }
 
 .heroButton {
@@ -60,7 +64,7 @@
     align-items: center;
     background-color: var(--primary-color);
     color: #E9E9E9;
-    padding: 10px 29px;
+    padding: 11px 29px;
     border-color: var(--primary-color);
     border-radius: 5px;
     margin: 0 auto;
@@ -72,13 +76,14 @@
     }
 
     @media screen and (min-width: 768px) {
+        padding: 9px 29px;
         font-size: 18px;
         line-height: 1.56;
     }
 }
 
-.hero__icon-btn {
-    width: 9px;
-    height: 18px;
+.iconBtn {
+    // width: 9px;
+    // height: 18px;
     margin-right: 4px;
 }

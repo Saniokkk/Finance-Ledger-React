@@ -16,6 +16,7 @@ const Team = () => {
         const path = require(`../../../assets/team/person${num}@2x.${ext}`);
         return path;
     }
+    
 
     return (
 <section className={styles.team} id="team">

@@ -8,7 +8,7 @@ function getCoords(elem) {
 }
 
 function scrollToTop(coord) {
-  const headerHeight = window.visualViewport.width < 768 ? 120 : 67
+  const headerHeight = window.visualViewport.width < 768 ? 120 : 80
   rootElement.scrollTo({
     top: coord ? coord - headerHeight : 0,
     behavior: "smooth"

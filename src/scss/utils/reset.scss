@@ -11,7 +11,8 @@ figure,
 figcaption,
 blockquote,
 dl,
-dd {
+dd,
+button {
   margin: 0;
   padding: 0;
 }
@@ -20,6 +21,7 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
 .offds {
   text-decoration: none;
   list-style: none;

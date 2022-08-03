@@ -5,6 +5,7 @@
 }
 
 .blog {
+
     background-color: var(--secondary-color);
     color: var(--primary-text-color);
 }
@@ -17,7 +18,15 @@
 
     @media screen and (min-width: 1360px) {
         min-width: 1360px;
+        height: 460px;
     }
+}
+
+.blogContainer > picture{
+    @media screen and (min-width: 1360px) {
+        max-height: 460px;
+    }
+    
 }
 
 .blogImg {
@@ -98,3 +107,4 @@
         line-height: 1.56;
     }
 }
+
