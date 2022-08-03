@@ -8,6 +8,9 @@ import Blog from './components/section/Blog';
 import Contact from './components/section/Contact';
 import Footer from './components/section/Footer';
 import Team from './components/section/Team';
+import React from 'react';
+
+// import img from './assets/cases/cases1@2x.jpg';
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
       <Hero />
       <About />
       <Cases />
-      <Blog />
+      <Blog /> 
       <Team />
       <Contact />
       <Footer />

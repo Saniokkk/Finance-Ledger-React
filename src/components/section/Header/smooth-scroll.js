@@ -16,10 +16,10 @@ function scrollToTop(coord) {
       return 80
     }
     if (window.visualViewport.width > 1360) {
-      return 67
+      return 66
     }
   }
-  
+
   rootElement.scrollTo({
     top: coord ? coord - headerHeight() : 0,
     behavior: "smooth"

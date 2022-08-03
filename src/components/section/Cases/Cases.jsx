@@ -1,6 +1,8 @@
 import { Container } from '../../Container';
 import styles from './Cases.module.scss';
 import classNames from 'classnames';
+import { useState } from 'react';
+import FsLightbox from 'fslightbox-react';
 
 
 const Cases = () => {
@@ -16,11 +18,19 @@ const Cases = () => {
         return path;
     }
 
-    const handleClick = (event) => {
-        event.preventdefault()
-        console.log(event)
+    const [lightboxController, setLightboxController] = useState({ toggler: false, slide: 1 });
+    
+    const images = imageTitle.map((item, index) => {
+        return imagePath2x(index + 1, 'jpg');
+    })
+    
+    function openLightboxOnSlide(number) {
+        setLightboxController({
+        toggler: !lightboxController.toggler,
+        slide: number
+        });
     }
-
+    
     return (
     <section className={styles.cases} id="cases">
         <Container className={styles.casesContainer}>
@@ -31,7 +41,11 @@ const Cases = () => {
             </div>
             <div className={classNames(styles.casesList, 'offds', 'lb-outerContainer')}>
                 {imageTitle.map((title, index) => (
-                    <a key={index} onClick={handleClick} href={imagePath2x(index+1, 'jpg')} data-lightbox="cases" data-title={title} className={styles.casesItem}>
+                    <a key={index} onClick={(e) => {
+                            e.preventDefault()
+                            openLightboxOnSlide(index + 1)
+                        }}
+                            href={imagePath2x(index + 1, 'jpg')} className={styles.casesItem}>
                         <picture>
                             <source srcSet={`${imagePath(index+1, 'webp')} 1x, ${imagePath2x(index+1, 'webp')} 2x`} type="image/webp"/>
                             <source srcSet={`${imagePath(index+1, 'jpg')} 1x, ${imagePath2x(index+1, 'jpg')} 2x`} type="image/jpg"/>
@@ -41,6 +55,13 @@ const Cases = () => {
                 ))}
             </div>
         </Container>
+        <FsLightbox
+            toggler={lightboxController.toggler}
+            sources={[
+            ...images
+            ]}
+            slide={lightboxController.slide}
+        />
     </section>
 
     )
