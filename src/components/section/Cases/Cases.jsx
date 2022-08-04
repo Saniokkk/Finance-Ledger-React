@@ -31,49 +31,78 @@ const Cases = () => {
         });
     }
 
-    const checkBtn = () => {
-        const numbers = document.querySelector('.fslightbox-slash');
-        const currentImg = numbers.previousElementSibling.textContent;
-        const totalImg = numbers.nextElementSibling.textContent;
-        const preBtn = document.querySelector('div[title="Previous slide"]');
-        const nextBtn = document.querySelector('div[title="Next slide"]');
-        if (Number(currentImg) === 1) {
-            preBtn.style.display = 'none';
-        }
-        if(Number(currentImg) > 1){
-            preBtn.style.display = 'flex';
-        }
-        if (totalImg - currentImg === 1) {
-            nextBtn.style.display = 'none';
-        }
-        if(totalImg - currentImg > 1){
-            nextBtn.style.display = 'flex';
-        }
-    }
+    // const checkBtn = (e) => {
 
-    const handleOpen = (e) => {
-        const numbers = document.querySelector('.fslightbox-slash');
-        const currentImg = numbers.previousElementSibling.textContent;
-        const totalImg = numbers.nextElementSibling.textContent;
-        const preBtn = document.querySelector('div[title="Previous slide"]');
-        const nextBtn = document.querySelector('div[title="Next slide"]');
-        preBtn.addEventListener('click', checkBtn);
-        nextBtn.addEventListener('click', checkBtn);
-        if (currentImg <= 1) {
-            preBtn.style.display = 'none';
-        }
-        if (totalImg - currentImg === 0) {
-            nextBtn.style.display = 'none';
-        }
+    // }
 
-    }
+    // const handlePreBtn = (e) => {
+    //     // console.log(lightboxController.slide)
+    //     const numbers = document.querySelector('.fslightbox-slash');
+    //     const currentImg = numbers.previousElementSibling.textContent;
+    //     console.log(currentImg - 1)
+    //     const totalImg = numbers.nextElementSibling.textContent;
+    //     const preBtn = document.querySelector('div[title="Previous slide"]');
+    //     const nextBtn = document.querySelector('div[title="Next slide"]');
+    //     if (Number(currentImg) === 1) {
+    //         preBtn.style.display = 'none';
+    //     }
+    //     if(Number(currentImg) - 1 >= 1){
+    //         preBtn.style.display = 'flex';
+    //     }
+    //     if (totalImg - currentImg === 1) {
+    //         nextBtn.style.display = 'none';
+    //     }
+    //     if(totalImg - currentImg > 1){
+    //         nextBtn.style.display = 'flex';
+    //     }
+    // }
 
-    const handleClose = (e) => {
-        const preBtn = document.querySelector('div[title="Previous slide"]');
-        const nextBtn = document.querySelector('div[title="Next slide"]');
-        preBtn.removeEventListener('click', checkBtn);
-        nextBtn.removeEventListener('click', checkBtn);
-    }
+    // const handleNextBtn = (e) => {
+    //     // console.log(lightboxController.slide)
+    //     const numbers = document.querySelector('.fslightbox-slash');
+    //     const currentImg = numbers.previousElementSibling.textContent;
+    //     // console.log(currentImg)
+    //     const totalImg = numbers.nextElementSibling.textContent;
+    //     const preBtn = document.querySelector('div[title="Previous slide"]');
+    //     const nextBtn = document.querySelector('div[title="Next slide"]');
+    //     console.log(currentImg)
+    //     if (Number(currentImg) === 1) {
+    //         preBtn.style.display = 'none';
+    //     }
+    //     if(Number(currentImg) > 1){
+    //         preBtn.style.display = 'flex';
+    //     }
+    //     if (totalImg - currentImg === 1) {
+    //         nextBtn.style.display = 'none';
+    //     }
+    //     if(totalImg - currentImg > 1){
+    //         nextBtn.style.display = 'flex';
+    //     }
+    // }
+
+    // const handleOpen = (e) => {
+    //     const numbers = document.querySelector('.fslightbox-slash');
+    //     const currentImg = numbers.previousElementSibling.textContent;
+    //     const totalImg = numbers.nextElementSibling.textContent;
+    //     const preBtn = document.querySelector('div[title="Previous slide"]');
+    //     const nextBtn = document.querySelector('div[title="Next slide"]');
+    //     preBtn.addEventListener('click', handlePreBtn);
+    //     nextBtn.addEventListener('click', handleNextBtn);
+    //     if (currentImg <= 1) {
+    //         preBtn.style.display = 'none';
+    //     }
+    //     if (totalImg - currentImg === 0) {
+    //         nextBtn.style.display = 'none';
+    //     }
+
+    // }
+
+    // const handleClose = (e) => {
+    //     const preBtn = document.querySelector('div[title="Previous slide"]');
+    //     const nextBtn = document.querySelector('div[title="Next slide"]');
+    //     preBtn.removeEventListener('click', handlePreBtn);
+    //     nextBtn.removeEventListener('click', handleNextBtn);
+    // }
     
     return (
     <section className={styles.cases} id="cases">
@@ -105,8 +134,8 @@ const Cases = () => {
             ...images
             ]}
             slide={lightboxController.slide}
-            onOpen={() => handleOpen()}
-            onClose={() => handleClose()}
+            // onOpen={() => handleOpen()}
+            // onClose={() => handleClose()}
         />
     </section>
 
