@@ -7,6 +7,7 @@ import FsLightbox from 'fslightbox-react';
 
 const Cases = () => {
     const imageTitle = ['Meeting', 'Excellent work', 'Interesting work', 'Building', 'Agreement', 'Great working atmosphere'];
+    let currentImg = null;
 
     const imagePath = (num, ext) => {
         const path = require(`../../../assets/cases/cases${num}.${ext}`);
@@ -31,78 +32,60 @@ const Cases = () => {
         });
     }
 
-    // const checkBtn = (e) => {
+    const checkBtnIsShow = (e) => {
+        const preBtn = document.querySelector('div[title="Previous slide"]');
+        const nextBtn = document.querySelector('div[title="Next slide"]');
+        const numbers = document.querySelector('.fslightbox-slash');
+        const totalImg = numbers.nextElementSibling.textContent;
 
-    // }
+        if (Number(currentImg) === 1) {
+            preBtn.style.display = 'none';
+        }
+        if(Number(currentImg) > 1){
+            preBtn.style.display = 'flex';
+        }
+        if (totalImg - currentImg === 0) {
+            nextBtn.style.display = 'none';
+        }
+        if(totalImg - currentImg > 0){
+            nextBtn.style.display = 'flex';
+        }
+    }
 
-    // const handlePreBtn = (e) => {
-    //     // console.log(lightboxController.slide)
-    //     const numbers = document.querySelector('.fslightbox-slash');
-    //     const currentImg = numbers.previousElementSibling.textContent;
-    //     console.log(currentImg - 1)
-    //     const totalImg = numbers.nextElementSibling.textContent;
-    //     const preBtn = document.querySelector('div[title="Previous slide"]');
-    //     const nextBtn = document.querySelector('div[title="Next slide"]');
-    //     if (Number(currentImg) === 1) {
-    //         preBtn.style.display = 'none';
-    //     }
-    //     if(Number(currentImg) - 1 >= 1){
-    //         preBtn.style.display = 'flex';
-    //     }
-    //     if (totalImg - currentImg === 1) {
-    //         nextBtn.style.display = 'none';
-    //     }
-    //     if(totalImg - currentImg > 1){
-    //         nextBtn.style.display = 'flex';
-    //     }
-    // }
+    const handlePreBtn = (e) => {
+        currentImg = Number(currentImg) - 1;
+        checkBtnIsShow();        
+    }
 
-    // const handleNextBtn = (e) => {
-    //     // console.log(lightboxController.slide)
-    //     const numbers = document.querySelector('.fslightbox-slash');
-    //     const currentImg = numbers.previousElementSibling.textContent;
-    //     // console.log(currentImg)
-    //     const totalImg = numbers.nextElementSibling.textContent;
-    //     const preBtn = document.querySelector('div[title="Previous slide"]');
-    //     const nextBtn = document.querySelector('div[title="Next slide"]');
-    //     console.log(currentImg)
-    //     if (Number(currentImg) === 1) {
-    //         preBtn.style.display = 'none';
-    //     }
-    //     if(Number(currentImg) > 1){
-    //         preBtn.style.display = 'flex';
-    //     }
-    //     if (totalImg - currentImg === 1) {
-    //         nextBtn.style.display = 'none';
-    //     }
-    //     if(totalImg - currentImg > 1){
-    //         nextBtn.style.display = 'flex';
-    //     }
-    // }
+    const handleNextBtn = (e) => {
+        currentImg = Number(currentImg) + 1;
+        checkBtnIsShow();
+    }
 
-    // const handleOpen = (e) => {
-    //     const numbers = document.querySelector('.fslightbox-slash');
-    //     const currentImg = numbers.previousElementSibling.textContent;
-    //     const totalImg = numbers.nextElementSibling.textContent;
-    //     const preBtn = document.querySelector('div[title="Previous slide"]');
-    //     const nextBtn = document.querySelector('div[title="Next slide"]');
-    //     preBtn.addEventListener('click', handlePreBtn);
-    //     nextBtn.addEventListener('click', handleNextBtn);
-    //     if (currentImg <= 1) {
-    //         preBtn.style.display = 'none';
-    //     }
-    //     if (totalImg - currentImg === 0) {
-    //         nextBtn.style.display = 'none';
-    //     }
+    const handleOpen = (e) => {
+        const numbers = document.querySelector('.fslightbox-slash');
+        currentImg = numbers.previousElementSibling.textContent;
+        const totalImg = numbers.nextElementSibling.textContent;
+        const preBtn = document.querySelector('div[title="Previous slide"]');
+        const nextBtn = document.querySelector('div[title="Next slide"]');
+        preBtn.addEventListener('click', handlePreBtn);
+        nextBtn.addEventListener('click', handleNextBtn);
 
-    // }
+        if (currentImg <= 1) {
+            preBtn.style.display = 'none';
+        }
+        if (totalImg - currentImg === 0) {
+            nextBtn.style.display = 'none';
+        }
 
-    // const handleClose = (e) => {
-    //     const preBtn = document.querySelector('div[title="Previous slide"]');
-    //     const nextBtn = document.querySelector('div[title="Next slide"]');
-    //     preBtn.removeEventListener('click', handlePreBtn);
-    //     nextBtn.removeEventListener('click', handleNextBtn);
-    // }
+    }
+
+    const handleClose = (e) => {
+        const preBtn = document.querySelector('div[title="Previous slide"]');
+        const nextBtn = document.querySelector('div[title="Next slide"]');
+        preBtn.removeEventListener('click', handlePreBtn);
+        nextBtn.removeEventListener('click', handleNextBtn);
+    }
     
     return (
     <section className={styles.cases} id="cases">
@@ -134,8 +117,8 @@ const Cases = () => {
             ...images
             ]}
             slide={lightboxController.slide}
-            // onOpen={() => handleOpen()}
-            // onClose={() => handleClose()}
+            onOpen={() => handleOpen()}
+            onClose={() => handleClose()}
         />
     </section>
 
