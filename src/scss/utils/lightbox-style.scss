@@ -1,0 +1,96 @@
+/* div > .fslightbox-slide-btn-container {
+
+}
+div > .fslightbox-slide-btn-container div[title="Previous slide"] {
+
+} */
+
+div[title]>.fslightbox-slide-btn {
+    background-color: transparent;
+}
+
+/* Кнопка назад */
+
+div[title="Previous slide"] {
+
+    // background-color: rgb(59, 139, 84);
+    width: 20vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    & svg{
+        display: none;
+    }
+    @media screen and (min-width: 1360px) {
+        justify-content: flex-end;
+    }
+}
+
+/* Кнопка назад */
+
+div[title="Next slide"] {
+    width: 20vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    & svg {
+        display: none;
+    }
+
+    @media screen and (min-width: 1360px) {
+        justify-content: flex-start;
+    }
+}
+
+/* Иконка кнопки назад */
+
+// div[title="Previous slide"]>.fslightbox-slide-btn {
+//     width: 30px;
+//     height: 30px;
+
+// }
+
+div[title="Previous slide"]::after {
+    content: '';
+    display: inline-block;
+    background-image: url(../../assets/prev.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 26px;
+    height: 26px;
+    @media screen and (min-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Иконка кнопки вперед */
+
+div[title="Next slide"]>.fslightbox-slide-btn > svg {
+    width: 30px;
+    height: 30px;
+}
+
+div[title="Next slide"]::before {
+    content: '';
+    display: inline-block;
+    background-image: url(../../assets/next.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 26px;
+    height: 26px;
+
+    @media screen and (min-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* счетчик картинок */
+.fslightbox-slash {}
+
+/* кнопки закрытия и фулскрин */
+.fslightbox-toolbar-button {}
+
